@@ -1,81 +1,78 @@
 <!DOCTYPE html>
-
 <meta charset="utf-8">
-<title>Crypton</title>
+<title>Web Crypto Pitfalls & Solutions</title>
 
 <!-- Your Slides -->
 <!-- One section is one slide -->
 
 <section>
-    <!-- This is the first slide -->
-    <h1>What is Crypton?</h1>
-    <footer>by David Dahl, SpiderOak</footer>
+  <!-- This is the first slide -->
+  <h3>Web Crypto Pitfalls and Solutions:</h3> 
+  <h3>A Documentation Effort</h3>
+  <footer>by David Dahl, SpiderOak</footer>
 </section>
 
 <section>
-    <p>Crypton is "full stack"</p>
-    <p><img src="full-stack.jpeg" height="100%"/></p>
+  <p><img src="pitfall.jpg" height="100%"/></p>
 </section>
 
 <section>
-    <h3>Crypton Front End</h3>
-    <ul class="incremental">
-      <li>Account Creation/Key Generation
-      <li>Peer Discovery
-      <li>Encrypt/Decrypt
-      <li>Sign/Verify
-    </ul>
+  <h3>Pitfalls</h3>
+  <ul class="incremental">
+    <li>Immediate remote code execution
+    <li>No native crypto API, yet
+    <li>JavaScript is slow
+    <li>Lack of Big Integers
+    <li>XSS
+    <li>CSRF
+    <li>Plugin exploits
+    <li>JS Engine / Browser Zero Days
+    <li>Key material exposure to content
+  </ul>
 </section>
 
 <section>
-  <p>Examples</p>
-  <pre>
-// Authenticate: PBKDF2
-crypton.authorize(aUsername, aPassword, function (err, session) { }); 
-
-</pre>
-
+  <h3>Current Browser Security Efforts</h3>
+  <ul class="incremental">
+    <li>CSP: Content Security Policy
+    <li>HSTS: HTTP Strict Transport Security
+    <li>No-restart extensions, "web apps"
+    <li>Plugin Click to Play
+    <li>Browser fast release cycle!
+    <li>Mixed Content Blocking
+    <li>ChromeApps
+  </ul>
 </section>
 
 <section>
-  <pre>
-// Send a Message to Alice
-
-var headers = { app: "fooApp", type: "txtMsg", from: "bob" };
-
-var payload = "s3kr3t m355ag3";
-
-crypton.getPeer("alice", function (peer, err){
-  var alice = peer;
-  alice.sendMessage(headers, payload, 
-    function callback(err, mesgId) {
-      // Alice will receive this message on 
-      // the next login (or instantly) via websockets 
-  });
-
-});
-  </pre>
+  <h3>Future Browser Security Efforts</h3>
+  <ul class="incremental">
+    <li>Web Crypto API
+    <li>Sandboxing
+    <li>(Firefox) Web Apps
+    <li>Content Release Policy [proposed]
+    <li>Script Signature Verification??
+  </ul>
 </section>
 
 <section>
-    <h3>Crypton Back End</h3>
-    <ul class="incremental">
-      <li>Container storage
-      <li>Highly Horizontally Scalable 
-	<ul>
-	  <li>Postgres Sharding
-	  <li>Nimbus.io
-	</ul>
-      <li>Peer Messaging (via socket.io)
-    </ul>
+  <h3>Let's Document the shit out of this!</h3>
+  <ul class="incremental">
+    <li>Too much confusion by non-technical folks, press
+    <li>Twitter meta-browser-crypto wars!
+  </ul>
 </section>
 
 <section>
-  
+  <h3>We want your help</h3>
+  <ul class="incremental">
+    <li>Let's collaborate on a document
+    <li>https://github.com/SpiderOak/WebCryptoPitfallsSolutions
+  </ul>
 </section>
 
 <section>
-    <h2>End!</h2>
+  <h2>End</h2>
 </section>
 
 <!-- Your Style -->
